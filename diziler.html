@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en" data-mdb-theme="light">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport"
+         content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+         crossorigin="anonymous">
+      <link
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+         rel="stylesheet" />
+      <link
+         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+         rel="stylesheet" />
+      <link
+         href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css"
+         rel="stylesheet" />
+      <script
+         src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+      <link rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+      <link rel="stylesheet" type="text/css" href="main.css" />
+      <title>Hello, world!</title>
+   </head>
+   <body>
+    <script>
+       
+      window.onload = function() {
+        const totalPages = 500; 
+        const currentPage = getPageNumberFromURL(); 
+    
+        const pagination = document.getElementById('pagination');
+    
+        
+        const previousPage = createPageLink(1, 'İlk');
+        pagination.appendChild(previousPage);
+        let from=1;
+        if((currentPage-3) <=0){
+          from =1;
+        }else{
+          from = currentPage-3;
+        }
+        let to = 500;
+        if((currentPage+3) >= 500){
+          to = 500;
+        }else{
+          to = currentPage+3;
+        }
+      
+        for (let i = from; i <= to; i++) {
+          const listItem = createPageLink(i, i,currentPage);
+          pagination.appendChild(listItem);
+        }
+  
+        const nextPage = createPageLink(500, 'Son');
+        pagination.appendChild(nextPage);
+      };
+    
+      function getPageNumberFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return parseInt(urlParams.get('page')) || 1;
+      }
+    
+     
+      function createPageLink(pageNumber, text,currentPage) {
+        const listItem = document.createElement('li');
+        listItem.classList.add('page-item');
+        if(pageNumber == currentPage){
+          listItem.classList.add('active');
+        }
+        const link = document.createElement('a');
+        link.classList.add('page-link');
+       
+       
+        link.href = `?page=${pageNumber}`;
+        link.textContent = text;
+    
+        if (pageNumber < 1 || pageNumber > 500) {
+          link.addEventListener('click', function(event) {
+            event.preventDefault(); 
+          });
+        }
+    
+        listItem.appendChild(link);
+        return listItem;
+      }
+    </script>
+      <div class="container" style="margin-bottom:100px">
+      <div class="row">
+      <div class="col-md-12">
+         <img src="https://placehold.co/1400x100" class="top-banner" alt>
+      </div>
+      <div class="col-md-12">
+         <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-body-tertiary">
+            <div class="container">
+               <a class="navbar-brand me-2" href="">
+               <img
+                  src="img/logo.png"
+                  
+                  alt="FWKES FILMS"
+                  loading="lazy"
+                  style="margin-top: -1px;    margin-top: -1px;
+                  height: 50px;
+                  border-radius: 5px;" />
+               </a>
+               <button
+                  data-mdb-collapse-init
+                  class="navbar-toggler"
+                  type="button"
+                  data-mdb-target="#navbarButtonsExample"
+                  aria-controls="navbarButtonsExample"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation">
+               <i class="fas fa-bars"></i>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarButtonsExample">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                     <li class="nav-item">
+                        <a class="nav-link" href="index.html">Filmler</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="diziler.html">Diziler</a>
+                     </li>
+                  </ul>
+                  <div class="d-flex align-items-center">
+                     <form class="d-flex input-group w-auto" action="search.html" style="    margin-right: 10px;">
+                        <input
+                          type="search"
+                          class="form-control"
+                          placeholder="Dizi Ara"
+                          aria-label="Search"
+                          name="query"
+                        />
+                        <input
+                          type="hidden"
+                          class="form-control"
+                          name="page"
+                          value="1"
+                        />
+                        <input
+                          type="hidden"
+                          class="form-control"
+                          name="type"
+                          value="tv"
+                        />
+                        <button
+                          data-mdb-ripple-init
+                          class="btn btn-outline-primary"
+                          type="submit"
+                          data-mdb-ripple-color="dark"
+
+                        >
+                          Ara
+                        </button>
+                      </form>
+                     <a class="btn text-white" data-mdb-ripple-init style="background-color: #ac2bac;"  role="button"
+                        href="https://www.instagram.com/fwkes.hp/"
+                        role="button" target="_blank"><i class="fab fa-instagram"></i></a>
+                  </div>
+               </div>
+            </div>
+         </nav>
+      </div>
+      <div class="col-md-12">
+         <div id="loading" class="movies-list owl-carousel">
+            <div class="card" aria-hidden="true">
+               <svg width="400px" height="250px" version="1.1" style="border-radius: 20px">
+                  <defs>
+                     <linearGradient id="graywave1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0"/>
+                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0.5"/>
+                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="1.0"/>
+                     </linearGradient>
+                     <linearGradient id="graywave2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0"/>
+                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0.5"/>
+                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="1.0"/>
+                     </linearGradient>
+                  </defs>
+                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect1" width="100%" height="100%" x="-200%" y="0"/>
+                  <rect style="fill:url(#graywave2);fill-opacity:1;fill-rule:evenodd;" id="loaderrect2" width="100%" height="100%" x="-100%" y="0"/>
+                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect3" width="100%" height="100%" x="0" y="0"/>
+                  <animate xlink:href="#loaderrect1" attributename="x" from="-200%" to="0%" dur="0.8s" begin="0s" fill="freeze" repeatcount="indefinite"/>
+                  <animate xlink:href="#loaderrect2" attributename="x" from="-100%" to="100%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
+                  <animate xlink:href="#loaderrect3" attributename="x" from="0%" to="200%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
+               </svg>
+               <div class="card-body">
+                  <h5 class="card-title placeholder-glow">
+                     <span class="placeholder col-6"></span>
+                  </h5>
+               </div>
+            </div>
+            <div class="card" aria-hidden="true">
+               <svg width="400px" height="250px" version="1.1" style="border-radius: 20px">
+                  <defs>
+                     <linearGradient id="graywave1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0"/>
+                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0.5"/>
+                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="1.0"/>
+                     </linearGradient>
+                     <linearGradient id="graywave2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0"/>
+                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0.5"/>
+                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="1.0"/>
+                     </linearGradient>
+                  </defs>
+                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect1" width="100%" height="100%" x="-200%" y="0"/>
+                  <rect style="fill:url(#graywave2);fill-opacity:1;fill-rule:evenodd;" id="loaderrect2" width="100%" height="100%" x="-100%" y="0"/>
+                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect3" width="100%" height="100%" x="0" y="0"/>
+                  <animate xlink:href="#loaderrect1" attributename="x" from="-200%" to="0%" dur="0.8s" begin="0s" fill="freeze" repeatcount="indefinite"/>
+                  <animate xlink:href="#loaderrect2" attributename="x" from="-100%" to="100%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
+                  <animate xlink:href="#loaderrect3" attributename="x" from="0%" to="200%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
+               </svg>
+               <div class="card-body">
+                  <h5 class="card-title placeholder-glow">
+                     <span class="placeholder col-6"></span>
+                  </h5>
+               </div>
+            </div>
+            <div class="card" aria-hidden="true">
+               <svg width="400px" height="250px" version="1.1" style="border-radius: 20px">
+                  <defs>
+                     <linearGradient id="graywave1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0"/>
+                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0.5"/>
+                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="1.0"/>
+                     </linearGradient>
+                     <linearGradient id="graywave2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0"/>
+                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0.5"/>
+                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="1.0"/>
+                     </linearGradient>
+                  </defs>
+                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect1" width="100%" height="100%" x="-200%" y="0"/>
+                  <rect style="fill:url(#graywave2);fill-opacity:1;fill-rule:evenodd;" id="loaderrect2" width="100%" height="100%" x="-100%" y="0"/>
+                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect3" width="100%" height="100%" x="0" y="0"/>
+                  <animate xlink:href="#loaderrect1" attributename="x" from="-200%" to="0%" dur="0.8s" begin="0s" fill="freeze" repeatcount="indefinite"/>
+                  <animate xlink:href="#loaderrect2" attributename="x" from="-100%" to="100%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
+                  <animate xlink:href="#loaderrect3" attributename="x" from="0%" to="200%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
+               </svg>
+               <div class="card-body">
+                  <h5 class="card-title placeholder-glow">
+                     <span class="placeholder col-6"></span>
+                  </h5>
+               </div>
+            </div>
+            <div class="card" aria-hidden="true">
+               <svg width="400px" height="250px" version="1.1" style="border-radius: 20px">
+                  <defs>
+                     <linearGradient id="graywave1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0"/>
+                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0.5"/>
+                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="1.0"/>
+                     </linearGradient>
+                     <linearGradient id="graywave2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0"/>
+                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0.5"/>
+                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="1.0"/>
+                     </linearGradient>
+                  </defs>
+                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect1" width="100%" height="100%" x="-200%" y="0"/>
+                  <rect style="fill:url(#graywave2);fill-opacity:1;fill-rule:evenodd;" id="loaderrect2" width="100%" height="100%" x="-100%" y="0"/>
+                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect3" width="100%" height="100%" x="0" y="0"/>
+                  <animate xlink:href="#loaderrect1" attributename="x" from="-200%" to="0%" dur="0.8s" begin="0s" fill="freeze" repeatcount="indefinite"/>
+                  <animate xlink:href="#loaderrect2" attributename="x" from="-100%" to="100%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
+                  <animate xlink:href="#loaderrect3" attributename="x" from="0%" to="200%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
+               </svg>
+               <div class="card-body">
+                  <h5 class="card-title placeholder-glow">
+                     <span class="placeholder col-6"></span>
+                  </h5>
+               </div>
+            </div>
+            <div class="card" aria-hidden="true">
+               <svg width="400px" height="250px" version="1.1" style="border-radius: 20px">
+                  <defs>
+                     <linearGradient id="graywave1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0"/>
+                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0.5"/>
+                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="1.0"/>
+                     </linearGradient>
+                     <linearGradient id="graywave2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0"/>
+                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0.5"/>
+                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="1.0"/>
+                     </linearGradient>
+                  </defs>
+                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect1" width="100%" height="100%" x="-200%" y="0"/>
+                  <rect style="fill:url(#graywave2);fill-opacity:1;fill-rule:evenodd;" id="loaderrect2" width="100%" height="100%" x="-100%" y="0"/>
+                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect3" width="100%" height="100%" x="0" y="0"/>
+                  <animate xlink:href="#loaderrect1" attributename="x" from="-200%" to="0%" dur="0.8s" begin="0s" fill="freeze" repeatcount="indefinite"/>
+                  <animate xlink:href="#loaderrect2" attributename="x" from="-100%" to="100%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
+                  <animate xlink:href="#loaderrect3" attributename="x" from="0%" to="200%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
+               </svg>
+               <div class="card-body">
+                  <h5 class="card-title placeholder-glow">
+                     <span class="placeholder col-6"></span>
+                  </h5>
+               </div>
+            </div>
+         </div>
+         <div id="movies" class="movies-list owl-carousel"
+            style="display: none;">
+         </div>
+      </div>
+      <hr>
+      <div class="col-md-12">
+         <div class="movies-list" id="movies-list">
+         </div>
+         <div class="clearfix"></div>
+         <div class="f-pagination">
+          <nav aria-label="Page">
+            <ul class="pagination" style="justify-content: center;" id="pagination">
+             
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      
+      <div class="col-md-3"></div>
+    
+      <script type="text/javascript"
+         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+         crossorigin="anonymous"></script>
+      <script
+         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+         crossorigin="anonymous"></script>
+      <script
+         src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+         crossorigin="anonymous"></script>
+      <script
+         src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script
+         src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+      <script>
+         async function getRandomMovies() {
+            const apiKey = '1b44088d28f43962ed16e614f60cbbd1'; 
+          
+          const moviesDiv = document.getElementById('movies');
+            const loadingDiv = document.getElementById('loading');
+            
+            const movies = [];
+            let  exist = []
+            for (let i = 0; i < 20; i++) {
+              const response = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}&language=tr-TR`);
+              const data = await response.json();
+         
+              if (data.results && data.results.length > 0) {
+                let  randomIndex = Math.floor(Math.random() * data.results.length);
+                while(exist.includes(randomIndex)){
+                    randomIndex = Math.floor(Math.random() * data.results.length);
+                }
+                exist.push(randomIndex);
+                const randomMovie = data.results[randomIndex];
+                movies.push(randomMovie);
+              } else {
+                console.error('Film bilgisi bulunamadı.');
+              }
+            
+            }
+            console.log(exist);
+            
+          
+         
+            
+            
+         
+            
+            movies.forEach(movie => {
+              const movieCard = document.createElement('div');
+              movieCard.classList.add('card');
+              let title = movie.name;
+              if (title.length > 20) {
+                title = `${title.substring(0, 20)}...`;
+              }
+              movieCard.innerHTML = `
+              
+                <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title}" class="card-img-top">
+                <a href="detail.html?id=${movie.id}&type=tv">
+                <div class="card-body">
+                  <h5 class="card-title">${title}</h5>
+                
+                </div>
+               </a>
+              `;
+              
+              moviesDiv.appendChild(movieCard);
+            });
+         
+            
+            
+          }
+         
+          async function filmListesiniAl() {
+         const apiKey = '1b44088d28f43962ed16e614f60cbbd1'; 
+         
+         const filmContainer = document.getElementById('movies-list');
+         const currentPage = getPageNumberFromURL(); 
+
+         const filmListesi = [];
+         let kullanilanIndeksler = []
+         for (let i = 0; i < 20; i++) {
+         const response = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}&language=tr-TR&page=${currentPage}`);
+         const data = await response.json();
+         console.log(data);
+         if (data.results && data.results.length > 0) {
+          let rastgeleIndeks = Math.floor(Math.random() * data.results.length);
+          while(kullanilanIndeksler.includes(rastgeleIndeks)){
+              rastgeleIndeks = Math.floor(Math.random() * data.results.length);
+          }
+          kullanilanIndeksler.push(rastgeleIndeks);
+          const rastgeleFilm = data.results[rastgeleIndeks];
+          filmListesi.push(rastgeleFilm);
+         } else {
+          console.error('Film bilgisi bulunamadı.');
+         }
+         
+         }
+         console.log(kullanilanIndeksler);
+         
+         
+         
+         
+         
+         
+         let i = 0;;
+         filmListesi.forEach(film => {
+         console.log(film);
+         const filmKarti = document.createElement('div');
+         filmKarti.classList.add('card');
+         let filmBasligi = film.name;
+         if (filmBasligi.length > 20) {
+          filmBasligi = `${filmBasligi.substring(0, 20)}...`;
+         } 
+         let filmaciklamasi = film.overview;
+         if (filmaciklamasi.length > 200) {
+          filmaciklamasi = `${filmaciklamasi.substring(0, 200)}...`;
+         } 
+         filmKarti.innerHTML = `
+          <img src="https://image.tmdb.org/t/p/w500/${film.poster_path}" alt="${film.title}" class="card-img-top">
+          <a href="detail.html?id=${film.id}&type=tv">
+          <div class="overlay">
+            <h3>${filmBasligi}</h3>
+            <p style="text-align:center">${filmaciklamasi}</p>
+            <p>IMDb Puanı: ${film.vote_average}</p>
+            
+        </div>
+        </a>
+         
+         `;
+         
+         filmContainer.appendChild(filmKarti);
+         console.log(i);
+       
+         });
+         
+      
+         }
+       
+         getRandomMovies();
+         filmListesiniAl();
+
+
+         function slideaktif() {
+         const moviesDiv = document.getElementById('movies');
+         const loadingDiv = document.getElementById('loading');
+         const owlCarousel =  $("#movies").owlCarousel({
+          items:4,
+          margin:20,
+          loop: false,
+          autoplay: true,
+          autoplayTimeout: 2000,
+          autoplayHoverPause: true,
+          responsive: {
+                        0: {
+                           items: 1
+                        },
+                        600: {
+                           items: 3
+                        },
+                        1000: {
+                           items: 4
+                        }
+                     }
+         });
+         
+         loadingDiv.style.display = 'none';
+         moviesDiv.style.display = 'block';
+         
+         }
+         
+         
+         setTimeout(slideaktif, 1000); 
+         $("#loading").owlCarousel({
+         items:4,
+          margin:20,
+          items:4,
+          loop: false,
+          responsive: {
+                        0: {
+                           items: 1
+                        },
+                        600: {
+                           items: 3
+                        },
+                        1000: {
+                           items: 4
+                        }
+                     }
+          
+         });
+          
+      </script>
+      
+   </body>
+</html>
