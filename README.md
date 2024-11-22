@@ -33,7 +33,7 @@
     <h2>📂 Project Setup</h2>
     <ol>
         <li>Clone this repository:
-            <pre>git clone [https://github.com/username/movie-tv-show-browser.git](https://github.com/FetihAkgun/Cine-Search-Demo.git)</pre>
+            <pre>git clone https://github.com/FetihAkgun/Cine-Search-Demo.git</pre>
         </li>
         <li>Navigate to the project folder:
             <pre>cd Cine-Search-Demo</pre>
