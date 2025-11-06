@@ -1,523 +1,548 @@
-<!doctype html>
-<html lang="en" data-mdb-theme="light">
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport"
-         content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <link rel="stylesheet"
-         href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-         crossorigin="anonymous">
-      <link
-         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-         rel="stylesheet" />
-      <link
-         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-         rel="stylesheet" />
-      <link
-         href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css"
-         rel="stylesheet" />
-      <script
-         src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-      <link rel="stylesheet"
-         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-      <link rel="stylesheet" type="text/css" href="main.css" />
-      <title>Hello, world!</title>
-   </head>
-   <body>
-    <script>
-       
-      window.onload = function() {
-        const totalPages = 500; 
-        const currentPage = getPageNumberFromURL(); 
-    
-        const pagination = document.getElementById('pagination');
-    
-        
-        const previousPage = createPageLink(1, 'İlk');
-        pagination.appendChild(previousPage);
-        let from=1;
-        if((currentPage-3) <=0){
-          from =1;
-        }else{
-          from = currentPage-3;
-        }
-        let to = 500;
-        if((currentPage+3) >= 500){
-          to = 500;
-        }else{
-          to = currentPage+3;
-        }
-      
-        for (let i = from; i <= to; i++) {
-          const listItem = createPageLink(i, i,currentPage);
-          pagination.appendChild(listItem);
-        }
-  
-        const nextPage = createPageLink(500, 'Son');
-        pagination.appendChild(nextPage);
-      };
-    
-      function getPageNumberFromURL() {
-        const urlParams = new URLSearchParams(window.location.search);
-        return parseInt(urlParams.get('page')) || 1;
-      }
-    
-     
-      function createPageLink(pageNumber, text,currentPage) {
-        const listItem = document.createElement('li');
-        listItem.classList.add('page-item');
-        if(pageNumber == currentPage){
-          listItem.classList.add('active');
-        }
-        const link = document.createElement('a');
-        link.classList.add('page-link');
-       
-       
-        link.href = `?page=${pageNumber}`;
-        link.textContent = text;
-    
-        if (pageNumber < 1 || pageNumber > 500) {
-          link.addEventListener('click', function(event) {
-            event.preventDefault(); 
-          });
-        }
-    
-        listItem.appendChild(link);
-        return listItem;
-      }
+<!DOCTYPE html>
+<html data-theme="dark" lang="tr">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="Permissions-Policy" content="autoplay=(self), encrypted-media=(self), accelerometer=(self), gyroscope=(self), picture-in-picture=(self), clipboard-write=(self), web-share=(self)"/>
+    <meta name="referrer" content="strict-origin-when-cross-origin"/>
+    <meta name="description" content="En popüler dizileri keşfedin. Trend diziler, popüler içerikler ve en iyi TV yapımlarını Cine Search'te bulun."/>
+    <meta name="keywords" content="dizi, tv, televizyon, streaming, popüler diziler, trend diziler"/>
+    <meta name="robots" content="index, follow"/>
+    <link rel="canonical" href="https://cinesearch.fetihakgun.com/diziler.html"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Cine Search - Diziler"/>
+    <meta property="og:description" content="En popüler dizileri keşfedin. Trend diziler, popüler içerikler ve en iyi TV yapımlarını bulun."/>
+    <meta property="og:url" content="https://cinesearch.fetihakgun.com/diziler.html"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Cine Search - Diziler"/>
+    <meta name="twitter:description" content="En popüler dizileri keşfedin. Trend diziler, popüler içerikler ve en iyi TV yapımlarını bulun."/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="/main.css" rel="stylesheet" type="text/css">
+    <script src="/app.js" defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Diziler",
+      "url": "https://cinesearch.fetihakgun.com/diziler.html",
+      "description": "En popüler dizileri keşfedin"
+    }
     </script>
-      <div class="container" style="margin-bottom:100px">
-      <div class="row">
-      <div class="col-md-12">
-         <img src="https://placehold.co/1400x100" class="top-banner" alt>
-      </div>
-      <div class="col-md-12">
-         <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-body-tertiary">
-            <div class="container">
-               <a class="navbar-brand me-2" href="">
-               <img
-                  src="img/logo.png"
-                  
-                  alt="FWKES FILMS"
-                  loading="lazy"
-                  style="margin-top: -1px;    margin-top: -1px;
-                  height: 50px;
-                  border-radius: 5px;" />
-               </a>
-               <button
-                  data-mdb-collapse-init
-                  class="navbar-toggler"
-                  type="button"
-                  data-mdb-target="#navbarButtonsExample"
-                  aria-controls="navbarButtonsExample"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation">
-               <i class="fas fa-bars"></i>
-               </button>
-               <div class="collapse navbar-collapse" id="navbarButtonsExample">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Filmler</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="diziler.html">Diziler</a>
-                     </li>
-                  </ul>
-                  <div class="d-flex align-items-center">
-                     <form class="d-flex input-group w-auto" action="search.html" style="    margin-right: 10px;">
-                        <input
-                          type="search"
-                          class="form-control"
-                          placeholder="Dizi Ara"
-                          aria-label="Search"
-                          name="query"
-                        />
-                        <input
-                          type="hidden"
-                          class="form-control"
-                          name="page"
-                          value="1"
-                        />
-                        <input
-                          type="hidden"
-                          class="form-control"
-                          name="type"
-                          value="tv"
-                        />
-                        <button
-                          data-mdb-ripple-init
-                          class="btn btn-outline-primary"
-                          type="submit"
-                          data-mdb-ripple-color="dark"
-
-                        >
-                          Ara
+    <title>Cine Search - Diziler</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="mainNav">
+        <div class="nav-container">
+            <a class="navbar-brand" href="/index.html">
+                <span class="brand-text">Cine Search</span>
+            </a>
+            <div class="navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html" data-translate="movies">Filmler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/diziler.html" data-translate="series">Diziler</a>
+                    </li>
+                </ul>
+                <div class="nav-controls">
+                    <form action="/search.html" class="search-form">
+                        <input class="form-control" type="search" name="query" data-translate-placeholder="searchSeriesPlaceholder" placeholder="Dizi Ara" aria-label="Search"/>
+                        <input type="hidden" name="page" value="1"/>
+                        <input type="hidden" name="type" value="tv"/>
+                        <button class="btn btn-outline-primary" type="submit" data-translate="search">
+                            <i class="fas fa-search"></i>
                         </button>
-                      </form>
-                     <a class="btn text-white" data-mdb-ripple-init style="background-color: #ac2bac;"  role="button"
-                        href="https://www.instagram.com/fwkes.hp/"
-                        role="button" target="_blank"><i class="fab fa-instagram"></i></a>
-                  </div>
-               </div>
-            </div>
-         </nav>
-      </div>
-      <div class="col-md-12">
-         <div id="loading" class="movies-list owl-carousel">
-            <div class="card" aria-hidden="true">
-               <svg width="400px" height="250px" version="1.1" style="border-radius: 20px">
-                  <defs>
-                     <linearGradient id="graywave1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0"/>
-                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0.5"/>
-                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="1.0"/>
-                     </linearGradient>
-                     <linearGradient id="graywave2" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0"/>
-                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0.5"/>
-                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="1.0"/>
-                     </linearGradient>
-                  </defs>
-                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect1" width="100%" height="100%" x="-200%" y="0"/>
-                  <rect style="fill:url(#graywave2);fill-opacity:1;fill-rule:evenodd;" id="loaderrect2" width="100%" height="100%" x="-100%" y="0"/>
-                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect3" width="100%" height="100%" x="0" y="0"/>
-                  <animate xlink:href="#loaderrect1" attributename="x" from="-200%" to="0%" dur="0.8s" begin="0s" fill="freeze" repeatcount="indefinite"/>
-                  <animate xlink:href="#loaderrect2" attributename="x" from="-100%" to="100%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
-                  <animate xlink:href="#loaderrect3" attributename="x" from="0%" to="200%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
-               </svg>
-               <div class="card-body">
-                  <h5 class="card-title placeholder-glow">
-                     <span class="placeholder col-6"></span>
-                  </h5>
-               </div>
-            </div>
-            <div class="card" aria-hidden="true">
-               <svg width="400px" height="250px" version="1.1" style="border-radius: 20px">
-                  <defs>
-                     <linearGradient id="graywave1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0"/>
-                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0.5"/>
-                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="1.0"/>
-                     </linearGradient>
-                     <linearGradient id="graywave2" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0"/>
-                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0.5"/>
-                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="1.0"/>
-                     </linearGradient>
-                  </defs>
-                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect1" width="100%" height="100%" x="-200%" y="0"/>
-                  <rect style="fill:url(#graywave2);fill-opacity:1;fill-rule:evenodd;" id="loaderrect2" width="100%" height="100%" x="-100%" y="0"/>
-                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect3" width="100%" height="100%" x="0" y="0"/>
-                  <animate xlink:href="#loaderrect1" attributename="x" from="-200%" to="0%" dur="0.8s" begin="0s" fill="freeze" repeatcount="indefinite"/>
-                  <animate xlink:href="#loaderrect2" attributename="x" from="-100%" to="100%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
-                  <animate xlink:href="#loaderrect3" attributename="x" from="0%" to="200%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
-               </svg>
-               <div class="card-body">
-                  <h5 class="card-title placeholder-glow">
-                     <span class="placeholder col-6"></span>
-                  </h5>
-               </div>
-            </div>
-            <div class="card" aria-hidden="true">
-               <svg width="400px" height="250px" version="1.1" style="border-radius: 20px">
-                  <defs>
-                     <linearGradient id="graywave1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0"/>
-                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0.5"/>
-                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="1.0"/>
-                     </linearGradient>
-                     <linearGradient id="graywave2" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0"/>
-                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0.5"/>
-                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="1.0"/>
-                     </linearGradient>
-                  </defs>
-                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect1" width="100%" height="100%" x="-200%" y="0"/>
-                  <rect style="fill:url(#graywave2);fill-opacity:1;fill-rule:evenodd;" id="loaderrect2" width="100%" height="100%" x="-100%" y="0"/>
-                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect3" width="100%" height="100%" x="0" y="0"/>
-                  <animate xlink:href="#loaderrect1" attributename="x" from="-200%" to="0%" dur="0.8s" begin="0s" fill="freeze" repeatcount="indefinite"/>
-                  <animate xlink:href="#loaderrect2" attributename="x" from="-100%" to="100%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
-                  <animate xlink:href="#loaderrect3" attributename="x" from="0%" to="200%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
-               </svg>
-               <div class="card-body">
-                  <h5 class="card-title placeholder-glow">
-                     <span class="placeholder col-6"></span>
-                  </h5>
-               </div>
-            </div>
-            <div class="card" aria-hidden="true">
-               <svg width="400px" height="250px" version="1.1" style="border-radius: 20px">
-                  <defs>
-                     <linearGradient id="graywave1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0"/>
-                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0.5"/>
-                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="1.0"/>
-                     </linearGradient>
-                     <linearGradient id="graywave2" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0"/>
-                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0.5"/>
-                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="1.0"/>
-                     </linearGradient>
-                  </defs>
-                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect1" width="100%" height="100%" x="-200%" y="0"/>
-                  <rect style="fill:url(#graywave2);fill-opacity:1;fill-rule:evenodd;" id="loaderrect2" width="100%" height="100%" x="-100%" y="0"/>
-                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect3" width="100%" height="100%" x="0" y="0"/>
-                  <animate xlink:href="#loaderrect1" attributename="x" from="-200%" to="0%" dur="0.8s" begin="0s" fill="freeze" repeatcount="indefinite"/>
-                  <animate xlink:href="#loaderrect2" attributename="x" from="-100%" to="100%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
-                  <animate xlink:href="#loaderrect3" attributename="x" from="0%" to="200%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
-               </svg>
-               <div class="card-body">
-                  <h5 class="card-title placeholder-glow">
-                     <span class="placeholder col-6"></span>
-                  </h5>
-               </div>
-            </div>
-            <div class="card" aria-hidden="true">
-               <svg width="400px" height="250px" version="1.1" style="border-radius: 20px">
-                  <defs>
-                     <linearGradient id="graywave1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0"/>
-                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0.5"/>
-                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="1.0"/>
-                     </linearGradient>
-                     <linearGradient id="graywave2" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="0"/>
-                        <stop style="stop-color:#eee;stop-opacity:0.5" offset="0.5"/>
-                        <stop style="stop-color:#ccc;stop-opacity:0.5" offset="1.0"/>
-                     </linearGradient>
-                  </defs>
-                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect1" width="100%" height="100%" x="-200%" y="0"/>
-                  <rect style="fill:url(#graywave2);fill-opacity:1;fill-rule:evenodd;" id="loaderrect2" width="100%" height="100%" x="-100%" y="0"/>
-                  <rect style="fill:url(#graywave1);fill-opacity:1;fill-rule:evenodd;" id="loaderrect3" width="100%" height="100%" x="0" y="0"/>
-                  <animate xlink:href="#loaderrect1" attributename="x" from="-200%" to="0%" dur="0.8s" begin="0s" fill="freeze" repeatcount="indefinite"/>
-                  <animate xlink:href="#loaderrect2" attributename="x" from="-100%" to="100%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
-                  <animate xlink:href="#loaderrect3" attributename="x" from="0%" to="200%" dur="0.8s" begin="0s" fill="freeze"repeatcount="indefinite"/>
-               </svg>
-               <div class="card-body">
-                  <h5 class="card-title placeholder-glow">
-                     <span class="placeholder col-6"></span>
-                  </h5>
-               </div>
-            </div>
-         </div>
-         <div id="movies" class="movies-list owl-carousel"
-            style="display: none;">
-         </div>
-      </div>
-      <hr>
-      <div class="col-md-12">
-         <div class="movies-list" id="movies-list">
-         </div>
-         <div class="clearfix"></div>
-         <div class="f-pagination">
-          <nav aria-label="Page">
-            <ul class="pagination" style="justify-content: center;" id="pagination">
-             
-            </ul>
-          </nav>
-        </div>
-      </div>
-
-      
-      <div class="col-md-3"></div>
-    
-      <script type="text/javascript"
-         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
-      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-         crossorigin="anonymous"></script>
-      <script
-         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-         crossorigin="anonymous"></script>
-      <script
-         src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
-         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-         crossorigin="anonymous"></script>
-      <script
-         src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <script
-         src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-      <script>
-         async function getRandomMovies() {
-            const apiKey = '1b44088d28f43962ed16e614f60cbbd1'; 
-          
-          const moviesDiv = document.getElementById('movies');
-            const loadingDiv = document.getElementById('loading');
-            
-            const movies = [];
-            let  exist = []
-            for (let i = 0; i < 20; i++) {
-              const response = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}&language=tr-TR`);
-              const data = await response.json();
-         
-              if (data.results && data.results.length > 0) {
-                let  randomIndex = Math.floor(Math.random() * data.results.length);
-                while(exist.includes(randomIndex)){
-                    randomIndex = Math.floor(Math.random() * data.results.length);
-                }
-                exist.push(randomIndex);
-                const randomMovie = data.results[randomIndex];
-                movies.push(randomMovie);
-              } else {
-                console.error('Film bilgisi bulunamadı.');
-              }
-            
-            }
-            console.log(exist);
-            
-          
-         
-            
-            
-         
-            
-            movies.forEach(movie => {
-              const movieCard = document.createElement('div');
-              movieCard.classList.add('card');
-              let title = movie.name;
-              if (title.length > 20) {
-                title = `${title.substring(0, 20)}...`;
-              }
-              movieCard.innerHTML = `
-              
-                <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title}" class="card-img-top">
-                <a href="detail.html?id=${movie.id}&type=tv">
-                <div class="card-body">
-                  <h5 class="card-title">${title}</h5>
-                
+                    </form>
+                    <button class="theme-toggle" type="button" title="Toggle Theme">
+                        <i class="fas fa-moon theme-icon"></i>
+                    </button>
+                    <div class="language-selector">
+                        <select>
+                            <option value="tr">TR</option>
+                            <option value="en">EN</option>
+                        </select>
+                    </div>
                 </div>
-               </a>
-              `;
-              
-              moviesDiv.appendChild(movieCard);
-            });
-         
-            
-            
-          }
-         
-          async function filmListesiniAl() {
-         const apiKey = '1b44088d28f43962ed16e614f60cbbd1'; 
-         
-         const filmContainer = document.getElementById('movies-list');
-         const currentPage = getPageNumberFromURL(); 
-
-         const filmListesi = [];
-         let kullanilanIndeksler = []
-         for (let i = 0; i < 20; i++) {
-         const response = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}&language=tr-TR&page=${currentPage}`);
-         const data = await response.json();
-         console.log(data);
-         if (data.results && data.results.length > 0) {
-          let rastgeleIndeks = Math.floor(Math.random() * data.results.length);
-          while(kullanilanIndeksler.includes(rastgeleIndeks)){
-              rastgeleIndeks = Math.floor(Math.random() * data.results.length);
-          }
-          kullanilanIndeksler.push(rastgeleIndeks);
-          const rastgeleFilm = data.results[rastgeleIndeks];
-          filmListesi.push(rastgeleFilm);
-         } else {
-          console.error('Film bilgisi bulunamadı.');
-         }
-         
-         }
-         console.log(kullanilanIndeksler);
-         
-         
-         
-         
-         
-         
-         let i = 0;;
-         filmListesi.forEach(film => {
-         console.log(film);
-         const filmKarti = document.createElement('div');
-         filmKarti.classList.add('card');
-         let filmBasligi = film.name;
-         if (filmBasligi.length > 20) {
-          filmBasligi = `${filmBasligi.substring(0, 20)}...`;
-         } 
-         let filmaciklamasi = film.overview;
-         if (filmaciklamasi.length > 200) {
-          filmaciklamasi = `${filmaciklamasi.substring(0, 200)}...`;
-         } 
-         filmKarti.innerHTML = `
-          <img src="https://image.tmdb.org/t/p/w500/${film.poster_path}" alt="${film.title}" class="card-img-top">
-          <a href="detail.html?id=${film.id}&type=tv">
-          <div class="overlay">
-            <h3>${filmBasligi}</h3>
-            <p style="text-align:center">${filmaciklamasi}</p>
-            <p>IMDb Puanı: ${film.vote_average}</p>
-            
+            </div>
         </div>
-        </a>
-         
-         `;
-         
-         filmContainer.appendChild(filmKarti);
-         console.log(i);
-       
-         });
-         
-      
-         }
-       
-         getRandomMovies();
-         filmListesiniAl();
+    </nav>
 
+    <!-- Mobile Bottom Navigation -->
+    <div class="mobile-bottom-nav">
+        <div class="mobile-bottom-nav-items">
+            <a href="/index.html" class="mobile-bottom-nav-item">
+                <i class="fas fa-home"></i>
+                <span data-translate="movies">Filmler</span>
+            </a>
+            <a href="/diziler.html" class="mobile-bottom-nav-item active">
+                <i class="fas fa-tv"></i>
+                <span data-translate="series">Diziler</span>
+            </a>
+            <button class="mobile-bottom-nav-item mobile-nav-control" type="button" id="mobileSearchButton">
+                <i class="fas fa-search"></i>
+                <span data-translate="search">Ara</span>
+            </button>
+            <button class="mobile-bottom-nav-item mobile-nav-control" type="button" id="mobileThemeToggle" title="Toggle Theme">
+                <i class="fas fa-moon theme-icon"></i>
+                <span data-translate="theme">Tema</span>
+            </button>
+            <div class="mobile-bottom-nav-item mobile-nav-control mobile-language-item">
+                <div class="mobile-language-button" id="mobileLanguageButton">
+                    <span id="mobileLanguageText">TR</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="mobile-language-dropdown" id="mobileLanguageDropdown">
+                    <div class="mobile-language-option" data-lang="tr">TR</div>
+                    <div class="mobile-language-option" data-lang="en">EN</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-         function slideaktif() {
-         const moviesDiv = document.getElementById('movies');
-         const loadingDiv = document.getElementById('loading');
-         const owlCarousel =  $("#movies").owlCarousel({
-          items:4,
-          margin:20,
-          loop: false,
-          autoplay: true,
-          autoplayTimeout: 2000,
-          autoplayHoverPause: true,
-          responsive: {
-                        0: {
-                           items: 1
-                        },
-                        600: {
-                           items: 3
-                        },
-                        1000: {
-                           items: 4
-                        }
-                     }
-         });
-         
-         loadingDiv.style.display = 'none';
-         moviesDiv.style.display = 'block';
-         
-         }
-         
-         
-         setTimeout(slideaktif, 1000); 
-         $("#loading").owlCarousel({
-         items:4,
-          margin:20,
-          items:4,
-          loop: false,
-          responsive: {
-                        0: {
-                           items: 1
-                        },
-                        600: {
-                           items: 3
-                        },
-                        1000: {
-                           items: 4
-                        }
-                     }
-          
-         });
-          
-      </script>
-      
-   </body>
+    <!-- Mobile Search Modal -->
+    <div class="mobile-search-modal" id="mobileSearchModal">
+        <div class="mobile-search-overlay" id="mobileSearchOverlay"></div>
+        <div class="mobile-search-container">
+            <div class="mobile-search-header">
+                <h3 data-translate="search">Ara</h3>
+                <button class="mobile-search-close" id="mobileSearchClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="mobile-search-form" id="mobileSearchForm">
+                <div class="mobile-search-input-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input type="search" class="mobile-search-input" id="mobileSearchInput" data-translate-placeholder="searchPlaceholder" placeholder="Film Ara" autofocus/>
+                </div>
+                <div class="mobile-search-type-selector">
+                    <label class="mobile-search-type-option">
+                        <input type="radio" name="searchType" value="movie" checked/>
+                        <span data-translate="movies">Filmler</span>
+                    </label>
+                    <label class="mobile-search-type-option">
+                        <input type="radio" name="searchType" value="tv"/>
+                        <span data-translate="series">Diziler</span>
+                    </label>
+                </div>
+                <button type="submit" class="mobile-search-submit">
+                    <i class="fas fa-search"></i>
+                    <span data-translate="search">Ara</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero-section" id="heroSection">
+        <div class="hero-backdrop" id="heroBackdrop"></div>
+        <div class="hero-content">
+            <h1 class="hero-title" id="heroTitle">Yükleniyor...</h1>
+            <p class="hero-description" id="heroDescription"></p>
+            <div class="hero-buttons">
+                <button class="btn-hero btn-hero-primary" onclick="playHeroVideo()">
+                    <i class="fas fa-play"></i> Oynat
+                </button>
+                <button class="btn-hero btn-hero-secondary" onclick="showHeroInfo()">
+                    <i class="fas fa-info-circle"></i> Daha Fazla Bilgi
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="content-section">
+        <!-- Trending TV -->
+        <div class="content-row">
+            <h2 class="row-title" data-translate="trending">Trend Diziler</h2>
+            <div class="movies-row" id="trendingTV">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popular TV -->
+        <div class="content-row">
+            <h2 class="row-title" data-translate="popular">Popüler Diziler</h2>
+            <div class="movies-row" id="popularTV">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Rated TV -->
+        <div class="content-row">
+            <h2 class="row-title" data-translate="topRated">En İyi Diziler</h2>
+            <div class="movies-row" id="topRatedTV">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- On The Air TV -->
+        <div class="content-row">
+            <h2 class="row-title" data-translate="onTheAir">Yayında Olan Diziler</h2>
+            <div class="movies-row" id="onTheAirTV">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Airing Today TV -->
+        <div class="content-row">
+            <h2 class="row-title" data-translate="airingToday">Bugün Yayınlanan Diziler</h2>
+            <div class="movies-row" id="airingTodayTV">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popular TV Grid -->
+        <div class="content-row">
+            <h2 class="row-title" data-translate="allPopular">Tüm Popüler Diziler</h2>
+            <div class="movies-grid" id="popularTVGrid">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+            </div>
+            <div class="f-pagination">
+                <nav aria-label="Page">
+                    <ul class="pagination" id="pagination"></ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_KEY = '1b44088d28f43962ed16e614f60cbbd1';
+        const BASE_URL = 'https://api.themoviedb.org/3';
+        const IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
+        const BACKDROP_BASE = 'https://image.tmdb.org/t/p/original';
+        
+        function createSlug(title) {
+            if (!title) return '';
+            return title
+                .toLowerCase()
+                .replace(/ğ/g, 'g')
+                .replace(/ü/g, 'u')
+                .replace(/ş/g, 's')
+                .replace(/ı/g, 'i')
+                .replace(/ö/g, 'o')
+                .replace(/ç/g, 'c')
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '');
+        }
+        
+        function createDetailUrl(id, type, title) {
+            const slug = createSlug(title);
+            const typePath = type === 'movie' ? 'film' : 'dizi';
+            return `${typePath}/${id}${slug ? '-' + slug : ''}`;
+        }
+        
+        let currentHeroTV = null;
+        
+        // Get API language from language manager
+        function getApiLanguage() {
+            return window.languageManager ? window.languageManager.getApiLanguage() : 'tr-TR';
+        }
+        
+        // Reload page content when language changes
+        function reloadPageContent(lang, apiLang) {
+            loadHeroTV();
+            loadTVRow('trending/tv/day', 'trendingTV', 'Trending');
+            loadTVRow('tv/popular', 'popularTV', 'Popular');
+            loadTVRow('tv/top_rated', 'topRatedTV', 'Top Rated');
+            loadTVRow('tv/on_the_air', 'onTheAirTV', 'On The Air');
+            loadTVRow('tv/airing_today', 'airingTodayTV', 'Airing Today');
+            loadPopularTVGrid();
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+
+        // Fetch trending TV for hero
+        async function loadHeroTV() {
+            try {
+                const apiLang = getApiLanguage();
+                const response = await fetch(`${BASE_URL}/trending/tv/day?api_key=${API_KEY}&language=${apiLang}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                if (data.results && data.results.length > 0) {
+                    const randomTV = data.results[Math.floor(Math.random() * data.results.length)];
+                    currentHeroTV = randomTV;
+                    displayHeroTV(randomTV);
+                } else {
+                    const titleEl = document.getElementById('heroTitle');
+                    if (titleEl) {
+                        titleEl.textContent = 'Dizi bulunamadı';
+                    }
+                }
+            } catch (error) {
+                console.error('Hero dizi yüklenemedi:', error);
+                const titleEl = document.getElementById('heroTitle');
+                if (titleEl) {
+                    titleEl.textContent = 'Yükleme hatası';
+                }
+            }
+        }
+
+        function displayHeroTV(tv) {
+            const backdrop = document.getElementById('heroBackdrop');
+            const titleEl = document.getElementById('heroTitle');
+            const descriptionEl = document.getElementById('heroDescription');
+            
+            if (!backdrop || !titleEl || !descriptionEl) {
+                console.error('Hero elements not found');
+                return;
+            }
+            
+            if (tv.backdrop_path) {
+                backdrop.style.backgroundImage = `url(${BACKDROP_BASE}${tv.backdrop_path})`;
+            }
+            
+            titleEl.textContent = tv.name || 'Dizi';
+            descriptionEl.textContent = tv.overview || 'Açıklama bulunamadı.';
+        }
+
+        function playHeroVideo() {
+            if (currentHeroTV) {
+                const tvName = currentHeroTV.name || 'Dizi';
+                window.location.href = `/dizi/${currentHeroTV.id}${createSlug(tvName) ? '-' + createSlug(tvName) : ''}`;
+            }
+        }
+
+        function showHeroInfo() {
+            if (currentHeroTV) {
+                const tvName = currentHeroTV.name || 'Dizi';
+                window.location.href = `/dizi/${currentHeroTV.id}${createSlug(tvName) ? '-' + createSlug(tvName) : ''}`;
+            }
+        }
+
+        // Load TV rows
+        async function loadTVRow(endpoint, containerId, title) {
+            try {
+                const apiLang = getApiLanguage();
+                const response = await fetch(`${BASE_URL}/${endpoint}?api_key=${API_KEY}&language=${apiLang}&page=1`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                const container = document.getElementById(containerId);
+                
+                if (!container) {
+                    console.error(`Container ${containerId} not found`);
+                    return;
+                }
+                
+                if (data.results && data.results.length > 0) {
+                    container.innerHTML = '';
+                    data.results.slice(0, 20).forEach((tv, index) => {
+                        const card = createTVCard(tv);
+                        container.appendChild(card);
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, index * 50);
+                    });
+                } else {
+                    container.innerHTML = '<p class="text-center text-muted">Dizi bulunamadı.</p>';
+                }
+            } catch (error) {
+                console.error(`${title} yüklenemedi:`, error);
+                const container = document.getElementById(containerId);
+                if (container) {
+                    container.innerHTML = '<p class="text-center text-muted">Yükleme hatası.</p>';
+                }
+            }
+        }
+
+        function createTVCard(tv) {
+            const card = document.createElement('a');
+            card.className = 'movie-card';
+            const title = tv.name || 'İsimsiz';
+            card.href = '/' + createDetailUrl(tv.id, 'tv', title);
+            
+            const poster = tv.poster_path 
+                ? `${IMAGE_BASE}${tv.poster_path}`
+                : '';
+            
+            const rating = (tv.vote_average / 2).toFixed(1);
+            
+            card.innerHTML = `
+                <img src="${poster}" alt="${title}" loading="lazy" onerror="this.onerror=null; this.style.background='linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%)'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='<span style=\\'font-size:64px;opacity:0.7\\'>🎬</span>'">
+                <div class="movie-card-overlay">
+                    <div class="movie-card-title">${title}</div>
+                    <div class="movie-card-rating">
+                        <i class="fas fa-star"></i>
+                        <span>${rating}</span>
+                    </div>
+                </div>
+            `;
+            
+            // If no poster path, set placeholder manually
+            if (!tv.poster_path) {
+                const img = card.querySelector('img');
+                img.style.background = 'linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%)';
+                img.style.display = 'flex';
+                img.style.alignItems = 'center';
+                img.style.justifyContent = 'center';
+                img.innerHTML = '<span style="font-size:64px;opacity:0.7">🎬</span>';
+            }
+            
+            return card;
+        }
+
+        // Load popular TV grid
+        async function loadPopularTVGrid(page = 1) {
+            try {
+                const apiLang = getApiLanguage();
+                const response = await fetch(`${BASE_URL}/tv/popular?api_key=${API_KEY}&language=${apiLang}&page=${page}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                const container = document.getElementById('popularTVGrid');
+                
+                if (!container) {
+                    console.error('Container popularTVGrid not found');
+                    return;
+                }
+                
+                if (data.results && data.results.length > 0) {
+                    container.innerHTML = '';
+                    data.results.forEach((tv, index) => {
+                        const card = document.createElement('a');
+                        card.className = 'movie-card-large';
+                        card.href = '/' + createDetailUrl(tv.id, 'tv', tv.name);
+                        
+                        const poster = tv.poster_path 
+                            ? `${IMAGE_BASE}${tv.poster_path}`
+                            : 'https://placehold.co/300x450?text=Poster+Yok';
+                        
+                        card.innerHTML = `
+                            <img src="${poster}" alt="${tv.name}" loading="lazy">
+                            <div class="movie-card-overlay">
+                                <div class="movie-card-title">${tv.name}</div>
+                                <div class="movie-card-description">${tv.overview || 'Açıklama bulunamadı.'}</div>
+                                <div class="movie-card-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>${(tv.vote_average / 2).toFixed(1)}</span>
+                                </div>
+                            </div>
+                        `;
+                        container.appendChild(card);
+                        // Trigger animation with delay
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, index * 50);
+                    });
+                    
+                    // Pagination
+                    updatePagination(page, data.total_pages);
+                }
+            } catch (error) {
+                console.error('Popüler diziler yüklenemedi:', error);
+            }
+        }
+
+        function updatePagination(currentPage, totalPages) {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            
+            const maxPages = Math.min(totalPages, 500);
+            const startPage = Math.max(1, currentPage - 2);
+            const endPage = Math.min(maxPages, currentPage + 2);
+            
+            // First page
+            if (startPage > 1) {
+                const li = document.createElement('li');
+                li.className = 'page-item';
+                const firstText = window.languageManager ? window.languageManager.t('first') : 'İlk';
+                li.innerHTML = `<a class="page-link" href="#" onclick="loadPopularTVGrid(1); return false;">${firstText}</a>`;
+                pagination.appendChild(li);
+            }
+            
+            // Page numbers
+            for (let i = startPage; i <= endPage; i++) {
+                const li = document.createElement('li');
+                li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+                li.innerHTML = `<a class="page-link" href="#" onclick="loadPopularTVGrid(${i}); return false;">${i}</a>`;
+                pagination.appendChild(li);
+            }
+            
+            // Last page
+            if (endPage < maxPages) {
+                const li = document.createElement('li');
+                li.className = 'page-item';
+                const lastText = window.languageManager ? window.languageManager.t('last') : 'Son';
+                li.innerHTML = `<a class="page-link" href="#" onclick="loadPopularTVGrid(${maxPages}); return false;">${lastText}</a>`;
+                pagination.appendChild(li);
+            }
+        }
+
+        // Trigger scroll animations after content loads
+        function triggerScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            // Observe content rows
+            document.querySelectorAll('.content-row').forEach(row => {
+                observer.observe(row);
+            });
+        }
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            loadHeroTV();
+            loadTVRow('trending/tv/day', 'trendingTV', 'Trending');
+            loadTVRow('tv/popular', 'popularTV', 'Popular');
+            loadTVRow('tv/top_rated', 'topRatedTV', 'Top Rated');
+            loadTVRow('tv/on_the_air', 'onTheAirTV', 'On The Air');
+            loadTVRow('tv/airing_today', 'airingTodayTV', 'Airing Today');
+            loadPopularTVGrid();
+            
+            // Trigger scroll animations
+            setTimeout(triggerScrollAnimations, 500);
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <p class="footer-copyright">© 2025 Cine Search. Tüm hakları saklıdır.</p>
+            </div>
+            <div class="footer-right">
+                <span class="footer-developer">Developed by Fetih</span>
+                <a href="https://github.com/FetihAkgun" target="_blank" rel="noopener noreferrer" class="footer-github">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>

@@ -1,180 +1,390 @@
 <!DOCTYPE html>
-<html data-mdb-theme="light" lang="en">
-   <head>
-      <meta charset="utf-8"/>
-      <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
-      <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet"/>
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet"/>
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet"/>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet"/>
-      <link href="main.css" rel="stylesheet" type="text/css">
-      <title>
-         Hello, world!
-      </title>
-      </link>
-      </link>
-   </head>
-   <body>
-      <div class="container" style="margin-bottom:100px">
-         <div class="row">
-            <div class="col-md-12">
-               <img alt="" class="top-banner" src="https://placehold.co/1400x100"/>
+<html data-theme="dark" lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Permissions-Policy" content="autoplay=(self), encrypted-media=(self), accelerometer=(self), gyroscope=(self), picture-in-picture=(self), clipboard-write=(self), web-share=(self)"/>
+    <meta name="referrer" content="strict-origin-when-cross-origin"/>
+    <meta name="description" content="Oyuncu bilgileri ve filmografisi. Cine Search'te oyuncuların tüm filmlerini keşfedin."/>
+    <meta name="keywords" content="oyuncu, aktör, filmografi, sinema"/>
+    <meta name="robots" content="index, follow"/>
+    <link rel="canonical" href="https://cinesearch.fetihakgun.com/actor.html"/>
+    <meta property="og:type" content="profile"/>
+    <meta property="og:title" content="Cine Search - Oyuncu"/>
+    <meta property="og:description" content="Oyuncu bilgileri ve filmografisi. Tüm filmlerini keşfedin."/>
+    <meta property="og:url" content="https://cinesearch.fetihakgun.com/actor.html"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="/main.css" rel="stylesheet" type="text/css">
+    <script src="/app.js" defer></script>
+    <title>Cine Search - Oyuncu</title>
+</head>
+<body>
+    <nav class="navbar" id="mainNav">
+        <div class="nav-container">
+            <a class="navbar-brand" href="/index.html">
+                <span class="brand-text">Cine Search</span>
+            </a>
+            <div class="navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html" data-translate="movies">Filmler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/diziler.html" data-translate="series">Diziler</a>
+                    </li>
+                </ul>
+                <div class="nav-controls">
+                    <form action="/search.html" class="search-form">
+                        <input class="form-control" type="search" name="query" data-translate-placeholder="searchPlaceholder" placeholder="Film Ara" aria-label="Search"/>
+                        <input type="hidden" name="page" value="1"/>
+                        <input type="hidden" name="type" value="movie"/>
+                        <button class="btn btn-outline-primary" type="submit" data-translate="search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    <button class="theme-toggle" type="button" title="Toggle Theme">
+                        <i class="fas fa-moon theme-icon"></i>
+                    </button>
+                    <div class="language-selector">
+                        <select>
+                            <option value="tr">TR</option>
+                            <option value="en">EN</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-12">
-               <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
-                  <div class="container">
-                     <a class="navbar-brand me-2" href="">
-                     <img alt="FWKES FILMS" loading="lazy" src="img/logo.png" style="margin-top: -1px;    margin-top: -1px;
-                        height: 50px;
-                        border-radius: 5px;">
-                     </img>
-                     </a>
-                     <button aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-mdb-collapse-init="" data-mdb-target="#navbarButtonsExample" type="button">
-                     <i class="fas fa-bars">
-                     </i>
-                     </button>
-                     <div class="collapse navbar-collapse" id="navbarButtonsExample">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                           <li class="nav-item">
-                              <a class="nav-link" href="index.html">
-                              Filmler
-                              </a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link" href="diziler.html">
-                              Diziler
-                              </a>
-                           </li>
-                        </ul>
-                        <div class="d-flex align-items-center">
-                           <a class="btn text-white" data-mdb-ripple-init="" href="https://www.instagram.com/fwkes.hp/" role="button" style="background-color: #ac2bac;" target="_blank">
-                           <i class="fab fa-instagram">
-                           </i>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </nav>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="mobile-bottom-nav">
+        <div class="mobile-bottom-nav-items">
+            <a href="/index.html" class="mobile-bottom-nav-item">
+                <i class="fas fa-home"></i>
+                <span data-translate="movies">Filmler</span>
+            </a>
+            <a href="/diziler.html" class="mobile-bottom-nav-item">
+                <i class="fas fa-tv"></i>
+                <span data-translate="series">Diziler</span>
+            </a>
+            <button class="mobile-bottom-nav-item mobile-nav-control" type="button" id="mobileSearchButton">
+                <i class="fas fa-search"></i>
+                <span data-translate="search">Ara</span>
+            </button>
+            <button class="mobile-bottom-nav-item mobile-nav-control" type="button" id="mobileThemeToggle" title="Toggle Theme">
+                <i class="fas fa-moon theme-icon"></i>
+                <span data-translate="theme">Tema</span>
+            </button>
+            <div class="mobile-bottom-nav-item mobile-nav-control mobile-language-item">
+                <div class="mobile-language-button" id="mobileLanguageButton">
+                    <span id="mobileLanguageText">TR</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="mobile-language-dropdown" id="mobileLanguageDropdown">
+                    <div class="mobile-language-option" data-lang="tr">TR</div>
+                    <div class="mobile-language-option" data-lang="en">EN</div>
+                </div>
             </div>
-            <div class="col-md-12">
+        </div>
+    </div>
+
+    <!-- Mobile Search Modal -->
+    <div class="mobile-search-modal" id="mobileSearchModal">
+        <div class="mobile-search-overlay" id="mobileSearchOverlay"></div>
+        <div class="mobile-search-container">
+            <div class="mobile-search-header">
+                <h3 data-translate="search">Ara</h3>
+                <button class="mobile-search-close" id="mobileSearchClose">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <hr/>
-            <div class="col-md-12">
-               <div class="movies-list" id="movies-list">
-               </div>
+            <form class="mobile-search-form" id="mobileSearchForm">
+                <div class="mobile-search-input-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input type="search" class="mobile-search-input" id="mobileSearchInput" data-translate-placeholder="searchPlaceholder" placeholder="Film Ara" autofocus/>
+                </div>
+                <div class="mobile-search-type-selector">
+                    <label class="mobile-search-type-option">
+                        <input type="radio" name="searchType" value="movie" checked/>
+                        <span data-translate="movies">Filmler</span>
+                    </label>
+                    <label class="mobile-search-type-option">
+                        <input type="radio" name="searchType" value="tv"/>
+                        <span data-translate="series">Diziler</span>
+                    </label>
+                </div>
+                <button type="submit" class="mobile-search-submit">
+                    <i class="fas fa-search"></i>
+                    <span data-translate="search">Ara</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Actor Info Section -->
+    <div class="actor-hero-section">
+        <div class="actor-info-card" id="actorInfoCard">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
             </div>
-            <div class="clearfix">
+        </div>
+    </div>
+
+    <!-- Movies Section -->
+    <div class="content-section">
+        <div class="content-row fade-in">
+            <h2 class="row-title" data-translate="actorMovies">Oyuncunun Filmleri</h2>
+            <div class="movies-list" id="movies-list">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
             </div>
-            <div class="f-pagination">
-               <nav aria-label="Page">
-                  <ul class="pagination" id="pagination" style="justify-content: center;">
-                  </ul>
-               </nav>
-            </div>
-         </div>
-         <div class="col-md-3">
-         </div>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js" type="text/javascript"></script>
-         <script crossorigin="anonymous" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-         <script crossorigin="anonymous" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-         <script crossorigin="anonymous" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-         <script>
-            console.clear()
+        </div>
+    </div>
+
+    <script>
+        const API_KEY = '1b44088d28f43962ed16e614f60cbbd1';
+        const IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
+        const BASE_URL = 'https://api.themoviedb.org/3';
+        
+        function createSlug(title) {
+            if (!title) return '';
+            return title
+                .toLowerCase()
+                .replace(/ğ/g, 'g')
+                .replace(/ü/g, 'u')
+                .replace(/ş/g, 's')
+                .replace(/ı/g, 'i')
+                .replace(/ö/g, 'o')
+                .replace(/ç/g, 'c')
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '');
+        }
+        
+        function createDetailUrl(id, type, title) {
+            const slug = createSlug(title);
+            const typePath = type === 'movie' ? 'film' : 'dizi';
+            return `${typePath}/${id}${slug ? '-' + slug : ''}`;
+        }
+
+        function getActorIdFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return parseInt(urlParams.get('actor')) || 11;
+        }
+
+        async function getActorDetails(actorID) {
+            const apiLang = window.languageManager ? window.languageManager.getApiLanguage() : 'tr-TR';
+            const url = `${BASE_URL}/person/${actorID}?api_key=${API_KEY}&language=${apiLang}`;
             
-                   function getPageNumberFromURL() {
-                  const urlParams = new URLSearchParams(window.location.search);
-                  
-                  return parseInt(urlParams.get('actor')) || 11;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok.');
                 }
-                   const API_KEY = '1b44088d28f43962ed16e614f60cbbd1';
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching actor details:', error);
+                return null;
+            }
+        }
+
+        async function getMoviesByActorID(actorID) {
+            const apiLang = window.languageManager ? window.languageManager.getApiLanguage() : 'tr-TR';
+            const url = `${BASE_URL}/person/${actorID}/movie_credits?api_key=${API_KEY}&language=${apiLang}`;
             
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok.');
+                }
+                const data = await response.json();
+                return data.cast || [];
+            } catch (error) {
+                console.error('Error fetching movies:', error);
+                return [];
+            }
+        }
+
+        function displayActorInfo(actor) {
+            const card = document.getElementById('actorInfoCard');
+            if (!actor) {
+                card.innerHTML = '<p>Oyuncu bilgileri yüklenemedi.</p>';
+                return;
+            }
+
+            const profile = actor.profile_path 
+                ? `${IMAGE_BASE}${actor.profile_path}` 
+                : '';
             
+            const knownFor = actor.known_for_department || 'Bilinmiyor';
+            const birthday = actor.birthday || 'Bilinmiyor';
+            const placeOfBirth = actor.place_of_birth || 'Bilinmiyor';
+            const biography = actor.biography || 'Biyografi bulunamadı.';
             
-                    async function getMoviesByActorID(actorID) {
-                    const baseUrl = `https://api.themoviedb.org/3/person/${actorID}/movie_credits`;
-                    const queryParams = new URLSearchParams({
-                        api_key: API_KEY,
-                        language:"tr-TR"
-                    });
-            
-                    const url = `${baseUrl}?${queryParams}`;
-            
-                    try {
-                        const response = await fetch(url);
-                        if (!response.ok) {
-                        throw new Error('Network response was not ok.');
+            card.innerHTML = `
+                <div class="actor-info-wrapper">
+                    <div class="actor-profile-image">
+                        ${profile ? 
+                            `<img src="${profile}" alt="${actor.name}" onerror="this.onerror=null; this.style.background='linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%)'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='<span style=\\'font-size:80px;opacity:0.7\\'>👤</span>'">` 
+                            : `<div style="background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 80px; opacity: 0.7;">👤</div>`
                         }
-                        
-                        const data = await response.json();
-                        return data.cast;
-                    } catch (error) {
-                        console.error('Error fetching data:', error);
-                        return null;
+                    </div>
+                    <div class="actor-details">
+                        <h1 class="actor-name">${actor.name || 'İsimsiz'}</h1>
+                        <div class="actor-meta">
+                            <div class="actor-meta-item">
+                                <i class="fas fa-star"></i>
+                                <span>${knownFor}</span>
+                            </div>
+                            ${birthday !== 'Bilinmiyor' ? `
+                            <div class="actor-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>${birthday}</span>
+                            </div>
+                            ` : ''}
+                            ${placeOfBirth !== 'Bilinmiyor' ? `
+                            <div class="actor-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>${placeOfBirth}</span>
+                            </div>
+                            ` : ''}
+                        </div>
+                        ${biography !== 'Biyografi bulunamadı.' ? `
+                        <div class="actor-biography">
+                            <h3>Biyografi</h3>
+                            <p>${biography.length > 500 ? biography.substring(0, 500) + '...' : biography}</p>
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+
+            // If no profile path, set placeholder manually
+            if (!actor.profile_path && profile) {
+                const img = card.querySelector('img');
+                if (img) {
+                    img.style.background = 'linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%)';
+                    img.style.display = 'flex';
+                    img.style.alignItems = 'center';
+                    img.style.justifyContent = 'center';
+                    img.innerHTML = '<span style="font-size:80px;opacity:0.7">👤</span>';
+                }
+            }
+        }
+
+        function displayMovies(movies) {
+            const container = document.getElementById('movies-list');
+            if (!movies || movies.length === 0) {
+                container.innerHTML = '<p>Film bulunamadı.</p>';
+                return;
+            }
+
+            container.innerHTML = '';
+            container.style.display = 'grid';
+            container.style.gridTemplateColumns = 'repeat(auto-fill, minmax(220px, 1fr))';
+            container.style.gap = '25px';
+            container.style.padding = '20px 0';
+
+            movies.forEach((movie, index) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                
+                const poster = movie.poster_path 
+                    ? `${IMAGE_BASE}${movie.poster_path}` 
+                    : '';
+                
+                const title = movie.title || movie.name || 'İsimsiz';
+                const overview = movie.overview || 'Açıklama bulunamadı.';
+                const rating = movie.vote_average ? (movie.vote_average / 2).toFixed(1) : 'N/A';
+                
+                card.innerHTML = `
+                    <img src="${poster}" alt="${title}" class="card-img-top" onerror="this.onerror=null; this.style.background='linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%)'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='<span style=\\'font-size:64px;opacity:0.7\\'>🎬</span>'">
+                    <a href="/${createDetailUrl(movie.id, 'movie', title)}">
+                        <div class="overlay">
+                            <h3>${title}</h3>
+                            <p>${overview.length > 150 ? overview.substring(0, 150) + '...' : overview}</p>
+                            <p><i class="fas fa-star" style="color: #ffd700;"></i> ${rating}</p>
+                        </div>
+                    </a>
+                `;
+                
+                container.appendChild(card);
+                
+                // If no poster path, set placeholder manually
+                if (!movie.poster_path) {
+                    const img = card.querySelector('img');
+                    if (img) {
+                        img.style.background = 'linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%)';
+                        img.style.display = 'flex';
+                        img.style.alignItems = 'center';
+                        img.style.justifyContent = 'center';
+                        img.innerHTML = '<span style="font-size:64px;opacity:0.7">🎬</span>';
                     }
-                    }
+                }
+                
+                // Trigger animation with delay
+                setTimeout(() => {
+                    card.classList.add('visible');
+                }, index * 50);
+            });
+        }
+
+        async function loadActorPage() {
+            const actorID = getActorIdFromURL();
             
-            // Örnek kullanım:
+            // Load actor details
+            const actor = await getActorDetails(actorID);
+            displayActorInfo(actor);
             
+            // Load movies
+            const movies = await getMoviesByActorID(actorID);
+            displayMovies(movies);
+        }
+
+        // Reload content when language changes
+        function reloadPageContent() {
+            loadActorPage();
+        }
+
+        window.addEventListener('languageChanged', reloadPageContent);
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            loadActorPage();
             
-            window.onload = function() {
-                 
-                 const currentActor = getPageNumberFromURL(); 
-                 
-                    const moviesDiv = document.getElementById('movies-list');
-                    getMoviesByActorID(currentActor)
-                    .then(movies => {
-            
-                        
-                        if (movies) {
-                            movies.forEach(movie => {
-                                const filmKarti = document.createElement('div');
-                                    filmKarti.classList.add('card');
-                                    let filmBasligi = movie.title;
-                                    if (filmBasligi.length > 20) {
-                                    filmBasligi = `${filmBasligi.substring(0, 20)}...`;
-                                    } 
-                                    let filmaciklamasi = movie.overview;
-                                    if (filmaciklamasi.length > 200) {
-                                    filmaciklamasi = `${filmaciklamasi.substring(0, 200)}...`;
-                                    }
-                                    if (movie.poster_path == null) {
-                                    filmposter = "https://static.displate.com/857x1200/displate/2022-04-15/7422bfe15b3ea7b5933dffd896e9c7f9_46003a1b7353dc7b5a02949bd074432a.jpg";
-                                    }else{
-                                        filmposter = "https://image.tmdb.org/t/p/w500/"+movie.poster_path;
-                                  
-                                    }
-                                    filmKarti.innerHTML = `
-                                
-                                        <img src="${filmposter}" alt="${movie.title}" class="card-img-top">
-                                    <a href="detail.html?id=${movie.id}&type=movie">
-                                    <div class="overlay">
-                                        <h3>${filmBasligi}</h3>
-                                        <p style="text-align:center">${filmaciklamasi}</p>
-                                        <p>IMDb Puanı: ${movie.vote_average}</p>
-                                        
-                                    </div>
-                                    </a>
-                                `;
-                                
-                                moviesDiv.appendChild(filmKarti);
-                                });
-                        console.log('Aktörün Filmleri:', movies);
-                      
-                        } else {
-                        console.log('Filmler bulunamadı.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Hata:', error);
-                    });
-                        
-             
-               };
-         </script>
-      </div>
-   </body>
+            // Mobile menu toggle
+
+            // Navbar scroll effect
+            let lastScroll = 0;
+            const navbar = document.getElementById('mainNav');
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                if (currentScroll > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                lastScroll = currentScroll;
+            });
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <p class="footer-copyright">© 2025 Cine Search. Tüm hakları saklıdır.</p>
+            </div>
+            <div class="footer-right">
+                <span class="footer-developer">Developed by Fetih</span>
+                <a href="https://github.com/FetihAkgun" target="_blank" rel="noopener noreferrer" class="footer-github">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>
